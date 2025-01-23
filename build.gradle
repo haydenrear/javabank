@@ -5,7 +5,7 @@ allprojects {
     apply plugin: 'signing'
 
     group = 'org.mbtest.javabank'
-    version = "${majorVersion}.${minorVersion}.${patchVersion}-SNAPSHOT"
+    version = "${majorVersion}.${minorVersion}.${patchVersion}-SNAPSHOT-BRANCH"
 
     if (!project.hasProperty("ossrhUsername")) {
         ext.ossrhUsername = ""
@@ -17,6 +17,7 @@ allprojects {
 
     repositories {
         mavenCentral()
+        mavenLocal()
     }
 
     task javadocJar(type: Jar) {
@@ -72,6 +73,7 @@ allprojects {
             }
         }
         repositories {
+            mavenLocal()
             maven {
                 def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
                 def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
@@ -85,7 +87,7 @@ allprojects {
     }
 
     signing {
-        sign publishing.publications.mavenJava
+//        sign publishing.publications.mavenJava
     }
 
     javadoc {

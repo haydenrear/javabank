@@ -14,6 +14,7 @@ public class Predicate extends HashMap {
     private static final String HEADERS = "headers";
     private static final String REQUEST_FROM = "requestFrom";
     private static final String BODY = "body";
+    private static final String JSON_PATH = "jsonpath";
 
     private Map data;
     private PredicateType type;
@@ -64,6 +65,11 @@ public class Predicate extends HashMap {
 
     public Predicate withPath(String path) {
         addEntry(PATH, path);
+        return this;
+    }
+
+    public Predicate withJsonPath(String path) {
+        addEntry(JSON_PATH, path);
         return this;
     }
 
