@@ -1,6 +1,12 @@
 # javabank [![Build Status](https://travis-ci.org/thejamesthomas/javabank.svg?branch=master)](https://travis-ci.org/thejamesthomas/javabank)
 Native Java bindings for Mountebank
 
+## Build and Deploy
+
+```shell
+./publish.sh
+```
+
 ## Project Status
 Functional but not under active development. I accept pull requests, and generally get them merged within a week, and the resulting build out to central within a few hours of a successful merge.
 
