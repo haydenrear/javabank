@@ -21,7 +21,7 @@ public class Predicate extends HashMap {
 
     public Predicate(PredicateType type) {
         this.type = type;
-        data = newHashMap();
+        data = new HashMap();
         this.put(type.getValue(), data);
     }
 
@@ -37,7 +37,7 @@ public class Predicate extends HashMap {
 
     private Predicate addMapEntry(String key, String name, String value) {
         if(!data.containsKey(key)) {
-            data.put(key, newHashMap());
+            data.put(key, new HashMap<>());
         }
 
         Map entryMap = (Map) data.get(key);
@@ -69,7 +69,9 @@ public class Predicate extends HashMap {
     }
 
     public Predicate withJsonPath(String path) {
-        addEntry(JSON_PATH, path);
+        Map<String, String> selector = new HashMap<>();
+        selector.put("selector", path);
+        data.put(JSON_PATH, selector);
         return this;
     }
 
