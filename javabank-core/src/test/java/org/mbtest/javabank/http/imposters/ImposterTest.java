@@ -1,12 +1,14 @@
 package org.mbtest.javabank.http.imposters;
 
 import org.apache.http.HttpHeaders;
+import org.assertj.core.util.Maps;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 import org.mbtest.javabank.fluent.ImposterBuilder;
 import org.mbtest.javabank.http.core.Stub;
+import org.mbtest.javabank.http.requests.Request;
 import org.mbtest.javabank.http.responses.Is;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -81,7 +83,10 @@ public class ImposterTest {
                       .header(com.google.common.net.HttpHeaders.CONTENT_TYPE, expectedContentType)
                     .end()
                   .end()
-                .end().build();
+                .end()
+                .build();
+
+        imposter.put("requests", new JSONObject(Maps.newHashMap("hello", "goodbye")));
 
         final Is response = new Is();
         response.withHeader(HttpHeaders.CONTENT_TYPE, expectedContentType);
@@ -98,6 +103,7 @@ public class ImposterTest {
         expectedJson.put("port", expectedPort);
         expectedJson.put("protocol", expectedProtocol);
         expectedJson.put("stubs", stubs);
+        expectedJson.put("requests", new Request(Maps.newHashMap("hello", "goodbye")));
 
         assertThat(imposter.toJSON()).isEqualTo(expectedJson);
     }
