@@ -46,6 +46,11 @@ public class Imposter extends HashMap {
         return this;
     }
 
+    public Imposter withRequestsRecorded(boolean doRecord) {
+        this.put("recordRequests", doRecord);
+        return this;
+    }
+
     public List<Stub> getStubs() {
         return ((List) get(STUBS));
     }

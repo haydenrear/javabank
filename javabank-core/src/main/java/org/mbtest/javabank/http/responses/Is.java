@@ -7,8 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import static com.google.common.collect.Maps.newHashMap;
-
 public class Is extends Response {
     private static final String IS = "is";
     private static final String HEADERS = "headers";
@@ -20,16 +18,21 @@ public class Is extends Response {
     private Map<String, String> headers;
 
     public Is() {
-        headers = newHashMap();
+        headers = new HashMap<>();
         headers.put(HttpHeaders.CONNECTION, "close");
 
-        this.data = newHashMap();
+        this.data = new HashMap<>();
         this.data.put(STATUS_CODE, 200);
         this.data.put(HEADERS, headers);
 
         this.put(IS, data);
         withStatusCode(HttpStatus.SC_OK);
         withBody("");
+    }
+
+    public Is withCount(int count) {
+        this.data.put("count", count);
+        return this;
     }
 
     public Is withStatusCode(int statusCode) {
