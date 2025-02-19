@@ -30,8 +30,8 @@ public class Is extends Response {
         withBody("");
     }
 
-    public Is withCount(int count) {
-        this.data.put("count", count);
+    public Is withRepeat(int numTimesRepeat) {
+        this.put("repeat", numTimesRepeat);
         return this;
     }
 
