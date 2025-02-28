@@ -1,11 +1,20 @@
 dependencies {
-    compile project(':javabank-core')
-    compile 'com.mashape.unirest:unirest-java:1.4.9'
+    implementation project(':javabank-core')
+    implementation 'com.mashape.unirest:unirest-java:1.4.9'
 
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:2.19.0'
-    testCompile 'org.powermock:powermock-api-mockito2:2.0.0-beta.5'
-    testCompile 'org.powermock:powermock-core:2.0.0-beta.5'
-    testCompile 'org.powermock:powermock-module-junit4:2.0.0-beta.5'
-    testCompile 'org.assertj:assertj-core:3.6.2'
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    testImplementation "org.assertj:assertj-core:3.26.3"
+    testImplementation 'org.mockito:mockito-core:3.12.4'
+    testImplementation 'org.hamcrest:hamcrest:3.0'
+    implementation("org.junit.platform:junit-platform-suite")
+    implementation("org.junit.jupiter:junit-jupiter-api")
+    implementation("org.junit.platform:junit-platform-suite-api:1.11.0")
+    testImplementation 'org.powermock:powermock-api-mockito2:2.0.9'
+    testImplementation 'org.powermock:powermock-core:2.0.9'
+    testImplementation 'org.powermock:powermock-module-junit4:2.0.9'
+
+}
+
+test {
+    jvmArgs '--add-opens', 'java.base/java.lang=ALL-UNNAMED', '--add-opens', 'java.base/java.util=ALL-UNNAMED'
 }

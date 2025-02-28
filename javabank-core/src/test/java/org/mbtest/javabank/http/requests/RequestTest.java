@@ -17,6 +17,8 @@ public class RequestTest {
         request.put("headers", new JSONObject(Maps.newHashMap("hello", "goodbye")));
         request.put("query", new JSONObject(Maps.newHashMap("hello", "goodbye")));
 
+//        request = request.withInjectedCode("function helo()")
+
         request.getPath();
         request.getHeaders();
         request.getMethod();

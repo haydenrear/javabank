@@ -1,11 +1,16 @@
 dependencies {
-    annotationProcessor 'org.projectlombok:lombok:1.18.2'
-    compileOnly 'org.projectlombok:lombok:1.18.2'
-    compile 'com.google.guava:guava:25.1-jre'
-    compile 'com.googlecode.json-simple:json-simple:1.1.1'
-    compile 'org.apache.httpcomponents:httpclient:4.5.5'
+    annotationProcessor 'org.projectlombok:lombok:1.18.36'
+    compileOnly 'org.projectlombok:lombok:1.18.36'
+    implementation 'org.jetbrains:annotations:26.0.2'
+    implementation 'com.google.guava:guava:25.1-jre'
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.5'
+    testImplementation "org.assertj:assertj-core:3.26.3"
+    testImplementation 'org.mockito:mockito-core:5.15.2'
+    testImplementation 'org.hamcrest:hamcrest:3.0'
+    implementation("org.junit.platform:junit-platform-suite")
+    implementation("org.junit.jupiter:junit-jupiter-api")
+    implementation("org.junit.platform:junit-platform-suite-api:1.11.0")
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.15.2'
 
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:2.19.0'
-    testCompile 'org.assertj:assertj-core:3.6.2'
 }

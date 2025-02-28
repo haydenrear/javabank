@@ -31,7 +31,7 @@ import com.mashape.unirest.request.body.RequestBodyEntity;
 @PrepareForTest({ Unirest.class, ImposterParser.class })
 public class ClientTest {
 
-    private static final Client client = new Client();
+    private static Client client = new Client();
 
     @Mock
     private GetRequest getRequest;

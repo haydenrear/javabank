@@ -1,5 +1,6 @@
 package org.mbtest.javabank.http.requests;
 
+import org.intellij.lang.annotations.Language;
 import org.json.simple.JSONObject;
 
 import java.util.HashMap;
@@ -11,6 +12,11 @@ public class Request extends HashMap {
 
     public Request(Map r) {
         this.putAll(r);
+    }
+
+    public Request withInjectedCode(@Language("javascript") String injectedCode) {
+        this.put("inject", new Inject(injectedCode));
+        return this;
     }
 
      public String getPath() {
