@@ -14,11 +14,6 @@ public class Request extends HashMap {
         this.putAll(r);
     }
 
-    public Request withInjectedCode(@Language("javascript") String injectedCode) {
-        this.put("inject", new Inject(injectedCode));
-        return this;
-    }
-
      public String getPath() {
         return (String) get("path");
     }
